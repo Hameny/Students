@@ -1,28 +1,36 @@
 package DTO;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 public class Student {
 
     private UUID id;
-    private String name;
-    private int age;
+    private String firstName;
+    private String secondName;
+    private Date dateOfBirthday;
+
 
     private List<Phone> phones;
     private List<Email> emails;
+    private UUID groupID;
 //    private List<Specialization> specializations;
 
-    public Student(UUID id, String name, int age) {
+    public Student(UUID id, String firstName,String secondName, Date dateOfBirthday,UUID groupID) {
         this.id = id;
-        this.name = name;
-        this.age = age;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.dateOfBirthday = dateOfBirthday;
+        this.groupID = groupID;
     }
 
-    public Student(String name, int age) {
+    public Student(String firstName,String secondName , Date dateOfBirthday,UUID groupID) {
         this.id = UUID.randomUUID();
-        this.name = name;
-        this.age = age;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.dateOfBirthday = dateOfBirthday;
+        this.groupID = groupID;
     }
 
     public UUID getId() {
@@ -33,20 +41,28 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public int getAge() {
-        return age;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public Date getDateOfBirthday() {
+        return dateOfBirthday;
+    }
+
+    public void setDateOfBirthday(Date dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public List<Phone> getPhones() {
@@ -65,7 +81,14 @@ public class Student {
         this.emails = emails;
     }
 
-//    public List<Specialization> getSpecializations() {
+    public UUID getGroupID() {
+        return groupID;
+    }
+
+    public void setGroupID(UUID groupID) {
+        this.groupID = groupID;
+    }
+    //    public List<Specialization> getSpecializations() {
 //        return specializations;
 //    }
 //
@@ -73,15 +96,17 @@ public class Student {
 //        this.specializations = specializations;
 //    }
 
+
     @Override
     public String toString() {
         return "Student{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", dateOfBirthday=" + dateOfBirthday +
                 ", phones=" + phones +
                 ", emails=" + emails +
-//                ", specializations=" + specializations +
-                '}'+'\n';
+                ", groupID=" + groupID +
+                '}';
     }
 }

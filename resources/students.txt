@@ -8,3 +8,5 @@ a02bcd25-7d17-4b6c-ad5c-b9380e314a6a,katya,32
 0154c32d-9fc3-43d6-acd3-7eb9631292bc,veronika,76
 1a1e5629-36a7-4ae9-b3a3-3dd576170c79,Shara,42
 19158643-869c-4660-9a51-257efb73f4b2,Kirill,45
+4a173819-2c9e-4e7b-8f92-6de3cb32a9ce,sam,asn,Wed Dec 12 00:00:00 MSK 2012
+5e72b463-d01c-483b-9f77-5f69ea16602a,alex,alex,Mon Dec 12 00:00:00 MSK 1222

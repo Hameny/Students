@@ -29,21 +29,21 @@ public class EmailRepositoryIMPL implements EmailRepository {
 
     @Override
     public List<Email> getEmailByStudentID(UUID studentID) {
-        List<Email> emails = new ArrayList<>();
+        List<Email> emailArrayList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("resources/emails.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("resources/emailArrayList.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] s = line.split(",");
                 Email email = new Email(UUID.fromString(s[0]), s[1], UUID.fromString(s[2]));
                 if (email.getStudentID().equals(studentID)) {
-                    emails.add(email);
+                    emailArrayList.add(email);
                 }
                 line = reader.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return emails;
+        return emailArrayList;
     }
 }

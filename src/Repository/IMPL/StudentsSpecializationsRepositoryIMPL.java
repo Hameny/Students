@@ -29,7 +29,7 @@ public class StudentsSpecializationsRepositoryIMPL implements StudentsSpecializa
 
     @Override
     public List<StudentsSpecializations> getStudentsSpecializationsToStudentByID(UUID studentID, UUID specializationID) {
-        List<StudentsSpecializations> studentsSpecializations = new ArrayList<>();
+        List<StudentsSpecializations> studentsSpecializationsArrayList = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("resources/studentSpecialization.txt"))) {
             String line = reader.readLine();
@@ -39,13 +39,13 @@ public class StudentsSpecializationsRepositoryIMPL implements StudentsSpecializa
                         new StudentsSpecializations(UUID.fromString(s[0]), UUID.fromString(s[1]), UUID.fromString(s[2]));
                 if (studentsSpecializations1.getStudentID().equals(studentID) &&
                         studentsSpecializations1.getSpecializationsID().equals(specializationID)) {
-                    studentsSpecializations.add(studentsSpecializations1);
+                    studentsSpecializationsArrayList.add(studentsSpecializations1);
                 }
                 line = reader.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return studentsSpecializations;
+        return studentsSpecializationsArrayList;
     }
 }

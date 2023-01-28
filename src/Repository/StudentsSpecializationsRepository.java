@@ -1,7 +1,5 @@
 package Repository;
 
-import DTO.Phone;
-import DTO.Specialization;
 import DTO.StudentsSpecializations;
 
 import java.util.List;

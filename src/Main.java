@@ -1,56 +1,84 @@
 import Services.*;
 import Services.IMPL.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         Scanner scanner = new Scanner(System.in);
 
-
         int inputNumber;
-
 
         do {
             System.out.println("""
                     Enter a number from 0 to 9. If you enter the number :
                     1 - print all students\s
-                    2 - add one student and print all students
-                    3 - add phone to student\s
-                    4 - add email to student\s
-                    5 - add specialization to student\s
-                    6 - add new specialization\s
-                    7 - print all specialization \s
+                    11 - print information about student\s
+                    12 - print all delete students\s
+                    2 - add new student\s
+                    21 - add student to group\s
+                    22 - print all groups\s
+                    3 - delete student\s
+                    4 - add phone to student\s
+                    5 - get to know student by ID\s
+                    6 - add email to student\s
+                    7 - print all subjects\s
+                    71 - add subject to student\s
+                    8 - add new subject\s
+                    81 - add mark by subject to student\s
+                    82 - print all mark by subject by student\s
+                    9 - get to know subject by ID\s
+                    10 - print all faculty\s
+                    101 - add new faculty\s
+                    13 - add new teacher\s
+                    131 - print all teachers\s
                     0 - exit from program""");
+
             inputNumber = scanner.nextInt();
             switch (inputNumber) {
                 case 1 -> {
                     StudentService studentService = new StudentServiceIMPL();
                     System.out.println(studentService.getAllStudents());
-
+                }
+                case 11 -> {
+                }
+                case 12 -> {
                 }
                 case 2 -> {
                     System.out.print("Input name of student: ");
-                    String name = scanner.next();
+                    String firstName = scanner.next();
+                    System.out.print("Input name of surname: ");
+                    String secondname = scanner.next();
                     System.out.print("Input age of student: ");
-                    int age = scanner.nextInt();
+                    String age = scanner.next();
+                    Date dateOfBirthday = new SimpleDateFormat("dd/MM/yyyy").parse(age);
+                    System.out.println("Date is : " + dateOfBirthday);
+                    System.out.print("Input id of group: ");
+                    UUID groupID = UUID.fromString(scanner.next());
                     StudentService studentService = new StudentServiceIMPL();
-                    studentService.addNewStudent(name, age);
+                    studentService.addNewStudent(firstName, secondname, dateOfBirthday, groupID);
                     System.out.println(studentService.getAllStudents());
-
+                }
+                case 21 -> {
+                }
+                case 22 -> {
                 }
                 case 3 -> {
+                }
+                case 4 -> {
                     System.out.println("Input ID of student :");
                     UUID studentID = UUID.fromString(scanner.next());
                     System.out.println("Input number phone : ");
                     String phone = scanner.next();
                     PhonesService phonesService = new PhoneServiceIMPL();
                     phonesService.addPhoneByStudentID(studentID, phone);
-
-
                 }
-                case 4 -> {
+                case 5 -> {
+                }
+                case 6 -> {
                     System.out.println("Input ID of student :");
                     UUID studentID = UUID.fromString(scanner.next());
                     System.out.println("Input email : ");
@@ -58,43 +86,69 @@ public class Main {
                     EmailService emailService = new EmailServiceIMPL();
                     emailService.addEmailByStudentID(studentID, email);
                 }
-                case 5 -> {
-                    System.out.println("Input ID of student to add specialization:");
+                case 7 -> {
+                    SubjectService subjectService = new SubjectServiceIMPL();
+                    System.out.println(subjectService.getAllSubjects());
+                }
+                case 71 -> {
+                    System.out.println("Input ID of student:");
                     UUID studentID = UUID.fromString(scanner.next());
-                    System.out.println("Input ID of specialization : ");
+                    System.out.println("Input ID of subject : ");
                     UUID specializationID = UUID.fromString(scanner.next());
                     StudentsSpecializationsService studentsSpecializations = new StudentsSpecializationsServiceIMPL();
                     studentsSpecializations.addSpecializationToStudentByStudentID(studentID, specializationID);
                 }
-                case 6 -> {
-                    System.out.println("Input name of specialization : ");
-                    String nameSpecialization = scanner.next();
-                    SpecializationService specializationService = new SpecializationServiceIMPL() {
-                    };
-                    specializationService.addSpecializationBySpecializationID(nameSpecialization);
+                case 8 -> {
+                    System.out.println("Input name of subject : ");
+                    String nameSubject = scanner.next();
+                    SubjectService subjectService = new SubjectServiceIMPL();
+                    subjectService.addSubjectBySpecializationID(nameSubject);
                 }
-                case 7 -> {
-                    SpecializationService specializationService = new SpecializationServiceIMPL();
-                    System.out.println(specializationService.getAllSpecializations());
+                case 81 -> {
+                    System.out.print("Input student ID: ");
+                    UUID studentSpecializationID = UUID.fromString(scanner.next());
+                    System.out.print("Input teacher ID: ");
+                    UUID teacherID = UUID.fromString(scanner.next());
+                    System.out.print("Input date of mark: ");
+                    String age = scanner.next();
+                    Date dateOfBirthday = new SimpleDateFormat("dd/MM/yyyy").parse(age);
+                    System.out.println("Date is : " + dateOfBirthday);
+                    System.out.print("Input number of mark: ");
+                    int mark = scanner.nextInt();
+                    MarkService markService = new MarkServiceIMPL();
+                    markService.addMarkToStudentBySpecializationID(studentSpecializationID, teacherID, mark);
                 }
-//                case  8 -> {
-//                    System.out.println("You entered a number" + inputNumber + ". Display first employee");
-//                    System.out.println("Input name of employee who are you looking for : ");
-//                    String nameSearch = scanner.next();
-//                    if(employee.contains(nameSearch)){
-//                        System.out.println("Name - " + nameSearch + " in list");
-//                    }
-//                    else{
-//                        System.out.println("Name not found");
-//                    }
-//                    x = true;
-//                }
-//                case 9 -> {
-//                    System.out.println("You entered a number" + inputNumber + ". Display list employee in string");
-//                    System.out.println("Employee : " + employee);
-//                    System.out.println("Employee " + String.join(",",employee));
-//                    x = true;
-//                }
+                case 82 -> {
+                }
+                case 9 -> {
+                    System.out.println("Input ID of faculty :");
+                    UUID facultyID = UUID.fromString(scanner.next());
+                    System.out.println("Input number of Group : ");
+                    int numberOfGroup = scanner.nextInt();
+                    GroupService groupService = new GroupServiceIMPL();
+                    groupService.addGroupByFacultyID(facultyID, numberOfGroup);
+                }
+                case 10 -> {
+                }
+                case 101 -> {
+                    System.out.print("Input name of faculty: ");
+                    String nameOfFaculty = scanner.next();
+                    FacultetService facultetService = new FacultetServiceIMPL();
+                    facultetService.addFacultet(nameOfFaculty);
+                    System.out.println(facultetService.getAllfacultets());
+                }
+                case 13 -> {
+                    System.out.print("Input name of teacher: ");
+                    String firstNameOfTeacher = scanner.next();
+                    System.out.print("Input surname of teacher: ");
+                    String secondNameOfTeacher = scanner.next();
+                    System.out.print("Input subject id to teacher: ");
+                    UUID subjectID = UUID.fromString(scanner.next());
+                    TeacherService teacherService = new TeacherServiceIMPL();
+                    teacherService.addNewTeacher(firstNameOfTeacher, secondNameOfTeacher, subjectID);
+                }
+                case 131 -> {
+                }
                 case 0 -> System.out.println("You entered a number " + inputNumber + ". PROGRAM EXIT");
                 default -> System.out.println("Incorrect number.Inter number in the range  1-9 or 0 to EXIT");
 
