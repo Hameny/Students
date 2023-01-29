@@ -3,22 +3,22 @@ package Services.IMPL;
 import DTO.Facultet;
 import Repository.FacultyRepository;
 import Repository.IMPL.FacultyRepositoryIMPL;
-import Services.FacultetService;
+import Services.FacultyService;
 
 import java.util.List;
 
-public class FacultetServiceIMPL implements FacultetService {
+public class FacultyServiceIMPL implements FacultyService {
     @Override
-    public void addFacultet(String nameOfFacultet) {
+    public void addFaculty(String nameOfFacultet) {
         FacultyRepository facultyRepository = new FacultyRepositoryIMPL();
-        facultyRepository.addNewFacultet(nameOfFacultet);
+        facultyRepository.addNewFaculty(nameOfFacultet);
 
     }
 
     @Override
-    public List<Facultet> getAllfacultets() {
+    public List<Facultet> getAllFaculties() {
 
         FacultyRepository facultyRepository = new FacultyRepositoryIMPL();
-        return facultyRepository.getALLFacultets();
+        return facultyRepository.getALLFaculty();
     }
 }

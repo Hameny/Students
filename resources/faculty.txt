@@ -1,1 +1,2 @@
-08b8e18d-1b35-4d37-80b1-9233ad0f3878,Economics
+ed3cd7f9-2d7b-441a-b9da-0a06624b3fa6,economics
+a027af88-29d2-4041-9542-11652b060ec3,philosophy

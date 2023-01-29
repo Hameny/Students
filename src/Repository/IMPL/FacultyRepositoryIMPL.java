@@ -18,7 +18,7 @@ public class FacultyRepositoryIMPL implements FacultyRepository {
 
 
     @Override
-    public List<Facultet> getALLFacultets() {
+    public List<Facultet> getALLFaculty() {
         try (BufferedReader reader = new BufferedReader(new FileReader("resources/faculty.txt"))) {
             String line = reader.readLine();
             while (line != null) {
@@ -34,7 +34,7 @@ public class FacultyRepositoryIMPL implements FacultyRepository {
     }
 
     @Override
-    public List<Facultet> addNewFacultet(String nameOfFacultet) {
+    public List<Facultet> addNewFaculty(String nameOfFacultet) {
         try (FileWriter fileWriter = new FileWriter("resources/faculty.txt", true)) {
 
             Facultet facultet = new Facultet(nameOfFacultet);

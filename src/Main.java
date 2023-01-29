@@ -1,4 +1,3 @@
-import DTO.Student;
 import Services.*;
 import Services.IMPL.*;
 
@@ -15,28 +14,28 @@ public class Main {
 
         do {
             System.out.println("""
-                    Enter a number from 0 to 9. If you enter the number :
-                    1 - print all students\s
-     -               11 - print information about student\s
-      -              12 - print all delete students\s
-                    2 - add new student\s
-     -               21 - add student to group\s
-                    22 - print all groups\s
-       -             3 - delete student\s
-                    4 - add phone to student\s
-    -                5 - get to know student by ID\s
-                    6 - add email to student\s
-                    7 - print all subjects\s
-                    71 - add subject to student\s
-                    8 - add new subject\s
-                    81 - add mark by subject to student\s
-     -               82 - print all mark by subject by student\s
-                    9 - get to know subject by ID\s
-      -              10 - print all faculty\s
-                    101 - add new faculty\s
-                    13 - add new teacher\s
-                    131 - print all teachers\s
-                    0 - exit from program""");
+                                    Enter a number from 0 to 9. If you enter the number :
+                                    1 - print all students\s
+                     -               11 - print information about student\s
+                      -              12 - print all delete students\s
+                                    2 - add new student\s
+                     -               21 - add student to group\s
+                                    22 - print all groups\s
+                       -             3 - delete student\s
+                                    4 - add phone to student\s
+                    -                5 - get to know student by ID\s
+                                    6 - add email to student\s
+                                    7 - print all subjects\s
+                                    71 - add subject to student\s
+                                    8 - add new subject\s
+                                    81 - add mark by subject to student\s
+                     -               82 - print all mark by subject by student\s
+                                    9 - get to know subject by ID\s
+                                    10 - print all faculty\s
+                                    101 - add new faculty\s
+                                    13 - add new teacher\s
+                                    131 - print all teachers\s
+                                    0 - exit from program""");
 
             inputNumber = scanner.nextInt();
             switch (inputNumber) {
@@ -125,21 +124,26 @@ public class Main {
                     System.out.println(markService.getAllMarks());
                 }
                 case 9 -> {
+
+                }
+                case 10 -> {
+                    FacultyService facultyService = new FacultyServiceIMPL();
+                    System.out.println(facultyService.getAllFaculties());
+                }
+                case 101 -> {
+                    System.out.print("Input name of faculty: ");
+                    String nameOfFaculty = scanner.next();
+                    FacultyService facultyService = new FacultyServiceIMPL();
+                    facultyService.addFaculty(nameOfFaculty);
+                    System.out.println(facultyService.getAllFaculties());
+                }
+                case 102 -> {
                     System.out.println("Input ID of faculty :");
                     UUID facultyID = UUID.fromString(scanner.next());
                     System.out.println("Input number of Group : ");
                     int numberOfGroup = scanner.nextInt();
                     GroupService groupService = new GroupServiceIMPL();
                     groupService.addGroupByFacultyID(facultyID, numberOfGroup);
-                }
-                case 10 -> {
-                }
-                case 101 -> {
-                    System.out.print("Input name of faculty: ");
-                    String nameOfFaculty = scanner.next();
-                    FacultetService facultetService = new FacultetServiceIMPL();
-                    facultetService.addFacultet(nameOfFaculty);
-                    System.out.println(facultetService.getAllfacultets());
                 }
                 case 13 -> {
                     System.out.print("Input name of teacher: ");

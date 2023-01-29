@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface FacultyRepository {
-    List<Facultet> getALLFacultets();
+    List<Facultet> getALLFaculty();
 
-    List<Facultet> addNewFacultet(String nameOfFacultet);
+    List<Facultet> addNewFaculty(String nameOfFacultet);
 }
