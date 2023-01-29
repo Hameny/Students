@@ -31,7 +31,7 @@ public class PhoneRepositoryIMPL implements PhoneRepository {
     public List<Phone> getPhoneByStudentID(UUID studentID) {
         List<Phone> phoneArrayList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("resources/phoneArrayList.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("resources/phones.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] s = line.split(",");

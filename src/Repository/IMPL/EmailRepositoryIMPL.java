@@ -31,7 +31,7 @@ public class EmailRepositoryIMPL implements EmailRepository {
     public List<Email> getEmailByStudentID(UUID studentID) {
         List<Email> emailArrayList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("resources/emailArrayList.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("resources/emails.txt"))) {
             String line = reader.readLine();
             while (line != null) {
                 String[] s = line.split(",");

@@ -1,6 +1,5 @@
 package DTO;
 
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -9,15 +8,23 @@ public class Student {
     private UUID id;
     private String firstName;
     private String secondName;
-    private Date dateOfBirthday;
-
-
+    private int dateOfBirthday;
     private List<Phone> phones;
     private List<Email> emails;
     private UUID groupID;
-//    private List<Specialization> specializations;
+    private boolean isDelete = false;
 
-    public Student(UUID id, String firstName,String secondName, Date dateOfBirthday,UUID groupID) {
+
+    public Student(UUID id, String firstName, String secondName, int dateOfBirthday, UUID groupID,boolean isDelete) {
+        this.id = id;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.dateOfBirthday = dateOfBirthday;
+        this.groupID = groupID;
+        this.isDelete = isDelete;
+    }
+
+    public Student(UUID id, String firstName, String secondName, int dateOfBirthday, UUID groupID) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
@@ -25,7 +32,7 @@ public class Student {
         this.groupID = groupID;
     }
 
-    public Student(String firstName,String secondName , Date dateOfBirthday,UUID groupID) {
+    public Student(String firstName,String secondName , int dateOfBirthday,UUID groupID) {
         this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.secondName = secondName;
@@ -57,11 +64,11 @@ public class Student {
         this.secondName = secondName;
     }
 
-    public Date getDateOfBirthday() {
+    public int getDateOfBirthday() {
         return dateOfBirthday;
     }
 
-    public void setDateOfBirthday(Date dateOfBirthday) {
+    public void setDateOfBirthday(int dateOfBirthday) {
         this.dateOfBirthday = dateOfBirthday;
     }
 
@@ -88,14 +95,14 @@ public class Student {
     public void setGroupID(UUID groupID) {
         this.groupID = groupID;
     }
-    //    public List<Specialization> getSpecializations() {
-//        return specializations;
-//    }
-//
-//    public void setSpecializations(List<Specialization> specializations) {
-//        this.specializations = specializations;
-//    }
 
+    public boolean getDelete() {
+        return isDelete;
+    }
+
+    public void setDelete(boolean delete) {
+        isDelete = delete;
+    }
 
     @Override
     public String toString() {
@@ -107,6 +114,7 @@ public class Student {
                 ", phones=" + phones +
                 ", emails=" + emails +
                 ", groupID=" + groupID +
+                ", isDelete=" + isDelete +
                 '}';
     }
 }
