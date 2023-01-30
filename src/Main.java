@@ -1,9 +1,11 @@
+import DTO.Student;
 import Services.*;
 import Services.IMPL.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
@@ -23,13 +25,13 @@ public class Main {
                                     22 - print all groups\s
                        -             3 - delete student\s
                                     4 - add phone to student\s
-                    -                5 - get to know student by ID\s
+                    -                5 - find student by ID\s
                                     6 - add email to student\s
                                     7 - print all subjects\s
                                     71 - add subject to student\s
                                     8 - add new subject\s
                                     81 - add mark by subject to student\s
-                     -               82 - print all mark by subject by student\s
+                                    82 - print all mark by subject by student\s
                                     9 - get to know subject by ID\s
                                     10 - print all faculty\s
                                     101 - add new faculty\s
@@ -51,13 +53,13 @@ public class Main {
                     System.out.print("Input name of student: ");
                     String firstName = scanner.next();
                     System.out.print("Input name of surname: ");
-                    String secondname = scanner.next();
+                    String secondName = scanner.next();
                     System.out.print("Input date of birthday of student in format dd/mm/yyyy: ");
                     int dateOfBirthday = scanner.nextInt();
                     System.out.print("Input id of group: ");
                     UUID groupID = UUID.fromString(scanner.next());
                     StudentService studentService = new StudentServiceIMPL();
-                    studentService.addNewStudent(firstName, secondname, dateOfBirthday, groupID);
+                    studentService.addNewStudent(firstName, secondName, dateOfBirthday, groupID);
                     System.out.println(studentService.getAllStudents());
                 }
                 case 21 -> {
@@ -78,6 +80,7 @@ public class Main {
                     phonesService.addPhoneByStudentID(studentID, phone);
                 }
                 case 5 -> {
+
                 }
                 case 6 -> {
                     System.out.println("Input ID of student :");

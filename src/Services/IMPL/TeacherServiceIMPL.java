@@ -1,10 +1,7 @@
 package Services.IMPL;
 
-import DTO.Student;
 import DTO.Teacher;
-import Repository.IMPL.StudentRepositoryIMPL;
 import Repository.IMPL.TeacherRepositoryIMPL;
-import Repository.StudentRepository;
 import Repository.TeacherRepository;
 import Services.TeacherService;
 

@@ -33,7 +33,6 @@ public class GroupRepositoryIMPL implements GroupRepository {
             while (line != null) {
                 String[] s = line.split(",");
                 Group group = new Group(UUID.fromString(s[0]),Integer.parseInt(s[1]), UUID.fromString(s[2]));
-                GroupRepository groupRepository = new GroupRepositoryIMPL();
                 groupList.add(group);
                 line = reader.readLine();
             }

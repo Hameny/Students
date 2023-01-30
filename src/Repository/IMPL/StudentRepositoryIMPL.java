@@ -3,16 +3,12 @@ package Repository.IMPL;
 import DTO.Email;
 import DTO.Phone;
 import DTO.Student;
-import DTO.StudentsSpecializations;
 import Repository.EmailRepository;
 import Repository.PhoneRepository;
 import Repository.StudentRepository;
 
 import java.io.*;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class StudentRepositoryIMPL implements StudentRepository {
     List<Student> studentArrayList = new ArrayList<>();
@@ -41,13 +37,13 @@ public class StudentRepositoryIMPL implements StudentRepository {
     }
 
     @Override
-    public List<Student> addNewStudent(String firstName, String secondName, int dateOfBirthday,UUID groupID) {
+    public List<Student> addNewStudent(String firstName, String secondName, int dateOfBirthday, UUID groupID) {
 
         try (FileWriter fileWriter = new FileWriter("resources/students.txt", true)) {
 
-            Student student = new Student(firstName, secondName, dateOfBirthday,groupID);
+            Student student = new Student(firstName, secondName, dateOfBirthday, groupID);
             String s = student.getId().toString() + "," + student.getFirstName() + "," + student.getSecondName()
-                    + "," + student.getDateOfBirthday() + "," + student.getGroupID()+ "," + student.getDelete();
+                    + "," + student.getDateOfBirthday() + "," + student.getGroupID() + "," + student.getDelete();
             fileWriter.write(s + "\n");
 
         } catch (IOException e) {
@@ -58,7 +54,7 @@ public class StudentRepositoryIMPL implements StudentRepository {
 
     @Override
     public List<Student> deleteStudentByID(UUID id) {
-return studentArrayList;
+        return studentArrayList;
 
     }
 }

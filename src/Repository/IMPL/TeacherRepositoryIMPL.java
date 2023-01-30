@@ -1,20 +1,13 @@
 package Repository.IMPL;
 
-import DTO.Email;
-import DTO.Phone;
-import DTO.Student;
 import DTO.Teacher;
-import Repository.EmailRepository;
-import Repository.PhoneRepository;
 import Repository.TeacherRepository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 

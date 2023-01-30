@@ -3,8 +3,6 @@ package Services.IMPL;
 import DTO.Group;
 import Repository.GroupRepository;
 import Repository.IMPL.GroupRepositoryIMPL;
-import Repository.IMPL.StudentRepositoryIMPL;
-import Repository.StudentRepository;
 import Services.GroupService;
 
 import java.util.List;
